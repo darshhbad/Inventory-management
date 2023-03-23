@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            display: block;
+            margin: 8px;
+            text-align: center;
+        }
+        form{   
+            background-color: orange;
+            text-align: center;
+
+        }
+        input{
+            width: 500px;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet"  href="ims.css">
+</head>
+<body>
+        <h2>Add items to inventory</h2>
+            <form id="addform" onsubmit="savetolocal(event)" class="form-check" novalidate>
+                <label>Item name</label><br>
+                <input type="text" id="name" name="name" class="form-control-md" required><br><br>
+                <label>Description</label><br>
+                <input type="text" id="desc" name="desc" class="form-control-md" required><br><br>
+                <label>Price (in Rs.)</label><br>
+                <input type="number" id="price" name="price" class="form-control-md" required><br><br>
+                <label>Quantity</label><br>
+                <input type="number" id="qty" name="qty" class="form-control-md" required><br><br>
+                <input type="submit" id='btn' name="submit" value="Add item" style="background-color: coral;"><br><br>
+            </form>
+            <ul id="items" class="list-group">
+                <li class="list-group-item"></li>
+            </ul>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>                
+        <script src=ims.js></script>
+</body>
+</html>
