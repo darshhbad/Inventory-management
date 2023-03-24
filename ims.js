@@ -39,9 +39,7 @@ function showonscreen(obj){
     const parent=document.getElementById('items')
     const child=document.createElement('li')
     child.id=obj._id
-    b=obj._id
     child.textContent=obj.name+"       "+obj.desc+"       "+obj.price+"Rs."+"       "+obj.qty+"No."+"        "
-
     const deletebtn=document.createElement('input')
     deletebtn.style.width = '200px';
     deletebtn.type="button"
@@ -59,6 +57,7 @@ function showonscreen(obj){
     buy.type="button"
     buy.value="Buy"
     buy.onclick=()=>{
+        b=obj._id
         a=1
         document.getElementById("name").value=obj.name
         document.getElementById("desc").value=obj.desc
@@ -90,6 +89,7 @@ function showupdated(){
     a=0
     axios.get(`https://crudcrud.com/api/7b98a65954d345d3a6eb348ba43b8b9e/data/${b}`)
     .then((res)=>{
+      b=null;
       showonscreen(res.data)
       }
     )
