@@ -1,6 +1,6 @@
 var a=0;
 var b;
-load()
+
 function savetolocal(event){
     event.preventDefault();
     const name=event.target.name.value;
@@ -14,7 +14,7 @@ function savetolocal(event){
         qty:qty
     }
     if (a==0){
-    axios.post("https://crudcrud.com/api/30d884ab6699436a8f921a04dbc39950/data",obj)
+    axios.post("https://crudcrud.com/api/7b98a65954d345d3a6eb348ba43b8b9e/data",obj)
     .then((response) =>{
       showonscreen(response.data)  
       console.log(response)
@@ -25,9 +25,9 @@ function savetolocal(event){
     //showonscreen(obj)
 }
     else{
-        axios.put(`https://crudcrud.com/api/30d884ab6699436a8f921a04dbc39950/data/${b}`,obj)
+        axios.put(`https://crudcrud.com/api/7b98a65954d345d3a6eb348ba43b8b9e/data/${b}`,obj)
         .then((response)=>{
-            reload();
+            showupdated();
         })
         .catch((err)=>{
             console.log(err)
@@ -47,7 +47,7 @@ function showonscreen(obj){
     deletebtn.type="button"
     deletebtn.value="Delete"
     deletebtn.onclick=()=>{
-        axios.delete(`https://crudcrud.com/api/30d884ab6699436a8f921a04dbc39950/data/${b}`)
+        axios.delete(`https://crudcrud.com/api/7b98a65954d345d3a6eb348ba43b8b9e/data/${b}`)
         .catch((err)=>{
             console.log(err)
         })
@@ -64,8 +64,8 @@ function showonscreen(obj){
         document.getElementById("desc").value=obj.desc
         document.getElementById("price").value=obj.price
         document.getElementById("qty").value=obj.qty
-        
         parent.removeChild(child)
+        
     }
 
     child.appendChild(buy)
@@ -73,8 +73,8 @@ function showonscreen(obj){
     parent.appendChild(child)
 }
 
-function load(){
-    axios.get("https://crudcrud.com/api/30d884ab6699436a8f921a04dbc39950/data")
+window.addEventListener("DOMContentLoaded",()=>{
+    axios.get("https://crudcrud.com/api/7b98a65954d345d3a6eb348ba43b8b9e/data")
     .then((res)=>{
       console.log(res)
       for(var i=0;i<res.data.length;i++){
@@ -84,11 +84,11 @@ function load(){
     .catch((error)=>{
       console.log(error)
     })  
-  }
+  })
 
-function reload(){
+function showupdated(){
     a=0
-    axios.get(`https://crudcrud.com/api/30d884ab6699436a8f921a04dbc39950/data/${b}`)
+    axios.get(`https://crudcrud.com/api/7b98a65954d345d3a6eb348ba43b8b9e/data/${b}`)
     .then((res)=>{
       showonscreen(res.data)
       }
